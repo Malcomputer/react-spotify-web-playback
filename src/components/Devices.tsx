@@ -201,18 +201,8 @@ export default function Devices(props: Props) {
     setOpen(s => !s);
   }, []);
 
-  const { currentDevice, otherDevices } = devices.reduce<DeviceList>(
-    (acc, device) => {
-      if (device.id === currentDeviceId) {
-        acc.currentDevice = device;
-      } else {
-        acc.otherDevices.push(device);
-      }
-
-      return acc;
-    },
-    { currentDevice: null, otherDevices: [] },
-  );
+  const activeDevice = devices.find(({is_active}) => is_active);
+  const { currentDevice, otherDevices } = {currentDevice: activeDevice, otherDevices: devices.filter(({id}) => id !== activeDevice.id)} as DeviceList;
 
   let icon = <DevicesIcon />;
 
