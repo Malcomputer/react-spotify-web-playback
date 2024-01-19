@@ -107,7 +107,7 @@ function App() {
     },
     setState,
   ] = useSetState<State>({
-      hideAttribution: false,
+      hideAttribution: true,
       inlineVolume: true,
     isActive: false,
       isPlaying: false,
@@ -292,7 +292,6 @@ function App() {
           initialVolume={100}
           inlineVolume={inlineVolume}
           layout={layout}
-          persistDeviceSelection
           play={isPlaying}
           showSaveIcon
           styles={styles}

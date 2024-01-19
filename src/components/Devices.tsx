@@ -202,7 +202,8 @@ export default function Devices(props: Props) {
   }, []);
 
   const activeDevice = devices.find(({is_active}) => is_active);
-  const { currentDevice, otherDevices } = {currentDevice: activeDevice, otherDevices: devices.filter(({id}) => id !== activeDevice.id)} as DeviceList;
+  const devicePicker = activeDevice ? activeDevice : {id: currentDeviceId, type: 'Computer'} as SpotifyDevice;
+  const { currentDevice, otherDevices } = {currentDevice: devicePicker, otherDevices: devices.filter(({id}) => id !== devicePicker.id)} as DeviceList;
 
   let icon = <DevicesIcon />;
 
