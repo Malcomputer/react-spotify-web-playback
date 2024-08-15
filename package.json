@@ -80,7 +80,7 @@
   },
   "scripts": {
     "build": "npm run clean && tsup && fix-tsup-cjs",
-    "clean": "del dist/*",
+    "clean": "del dist",
     "watch": "tsup --watch",
     "lint": "eslint --fix src test",
     "test": "is-ci \"test:coverage\" \"test:watch\"",
@@ -92,7 +92,7 @@
     "validate": "npm run lint && npm run typecheck && npm run test:coverage && npm run build && npm run typevalidation && npm run size",
     "size": "size-limit",
     "prepublishOnly": "npm run validate",
-    "prepare": "husky"
+    "prepare": "tsup && fix-tsup-cjs"
   },
   "tsup": {
     "dts": true,

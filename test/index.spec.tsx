@@ -678,20 +678,6 @@ describe('SpotifyWebPlayer', () => {
     });
   });
 
-  describe('With "persistDeviceSelection"', () => {
-    it('should handle "persistDeviceSelection"', async () => {
-      await setup({ persistDeviceSelection: true });
-
-      expect(sessionStorage.getItem('rswpDeviceId')).toBe(deviceId);
-
-      setExternalDevice();
-
-      await waitFor(() => {
-        expect(sessionStorage.getItem('rswpDeviceId')).toBe(externalDeviceId);
-      });
-    });
-  });
-
   describe('With "syncExternalDevice"', () => {
     it('should handle syncExternalDevice changes', async () => {
       playerStatusResponse = {

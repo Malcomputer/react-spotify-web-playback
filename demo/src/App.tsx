@@ -353,7 +353,6 @@ function App() {
           initialVolume={100}
           inlineVolume={inlineVolume}
           layout={layout}
-          persistDeviceSelection
           play={isPlaying}
           showSaveIcon
           styles={transparent ? { ...styles, bgColor: 'transparent' } : styles}
